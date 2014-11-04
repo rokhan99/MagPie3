@@ -30,21 +30,37 @@ public class Magpie3
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if (statement.length() == 0)
-		{
-			response = "Say something, please.";
-		}
-		else if (findKeyword(statement, "no") >= 0)
-		{
-			response = "Why so negative?";
-		}
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
-		{
-			response = "Tell me more about your family.";
-		}
+        if (statement.indexOf("no") >= 0)
+        {
+            response = "Why so negative?";
+        }
+
+        else if (statement.indexOf("dog") >= 0)
+        {
+            response = "Tell me more about your pets.";
+        }
+
+        else if (statement.indexOf("cat") >= 0)
+        {
+            response = "Tell me more about your pets.";
+        }
+
+        else if (statement.indexOf("Easton") >= 0)
+        {
+            response = "Pennsylvania";
+        }
+
+        else if (statement.indexOf("Blue") >= 0)
+        {
+            response = "Is the best color.";
+        }
+        else if (statement.indexOf("How are you?") >= 0)
+        {
+            response = "I'm good. How about you?";
+        }
+        else if (statement.indexOf("Mr. Finkelstein is telling us about robotics.") >= 0) {
+            response = "He sounds like a good teacher.";
+        }
 		else
 		{
 			response = getRandomResponse();
@@ -142,31 +158,34 @@ public class Magpie3
 	 * 
 	 * @return a non-committal string
 	 */
-	private String getRandomResponse()
-	{
-		final int NUMBER_OF_RESPONSES = 4;
-		double r = Math.random();
-		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
-		String response = "";
+    private String getRandomResponse()
+    {
+        final int NUMBER_OF_RESPONSES = 5;
+        double r = Math.random();
+        int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+        String response = "";
 
-		if (whichResponse == 0)
-		{
-			response = "Interesting, tell me more.";
-		}
-		else if (whichResponse == 1)
-		{
-			response = "Hmmm.";
-		}
-		else if (whichResponse == 2)
-		{
-			response = "Do you really think so?";
-		}
-		else if (whichResponse == 3)
-		{
-			response = "You don't say.";
-		}
-
-		return response;
+        if (whichResponse == 0)
+        {
+            response = "Interesting, tell me more.";
+        }
+        else if (whichResponse == 1)
+        {
+            response = "Hmmm.";
+        }
+        else if (whichResponse == 2)
+        {
+            response = "Do you really think so?";
+        }
+        else if (whichResponse == 3)
+        {
+            response = "Wow!.";
+        }
+        else if (whichResponse == 4)
+        {
+            response = "Very interesting!";
+        }
+        return response;
 	}
 
 }
